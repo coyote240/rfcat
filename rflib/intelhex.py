@@ -36,12 +36,12 @@
 @author     Alexander Belchenko (bialix AT ukr net)
 @version    1.1
 '''
-from __future__ import division, print_function
+
 
 from builtins import bytes
 from builtins import str
 from builtins import range
-from past.builtins import basestring
+from past.builtins import str
 from builtins import object
 from past.utils import old_div
 __docformat__ = "javadoc"
@@ -56,7 +56,7 @@ from .bits import correctbytes
 
 # the Python 2 integer types int and long have been unified in Python 3
 if sys.version_info < (3,):
-    integer_types = (int, long,)
+    integer_types = (int, int,)
 else:
     integer_types = (int,)
 
@@ -82,7 +82,7 @@ class IntelHex(object):
         self._offset = 0
 
         if source is not None:
-            if isinstance(source, basestring) or getattr(source, "read", None):
+            if isinstance(source, str) or getattr(source, "read", None):
                 # load hex file
                 self.loadhex(source)
             elif isinstance(source, dict):

@@ -1,7 +1,7 @@
 #!/usr/bin/env ipython -i --no-banner
 
-from __future__ import print_function
-from __future__ import absolute_import
+
+
 
 from builtins import str
 from builtins import range
@@ -237,7 +237,7 @@ def interactive(idx=0, DongleClass=RfCat, intro=''):
 
                 print(intro)
                 ipsh.mainloop()
-            except ImportError, e:
+            except ImportError as e:
                 print(e)
                 shell = code.InteractiveConsole(gbls)
                 print(intro)

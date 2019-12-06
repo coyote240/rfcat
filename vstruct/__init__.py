@@ -1,6 +1,6 @@
 
 import struct
-from StringIO import StringIO
+from io import StringIO
 
 import vstruct.primitives as vs_prims
 
@@ -88,7 +88,7 @@ class VStruct(vs_prims.v_base):
 
     # FIXME implement more arithmetic for structs...
     def __ixor__(self, other):
-        for name,value in other._vs_values.items():
+        for name,value in list(other._vs_values.items()):
             self._vs_values[name] ^= value
         return self
 
@@ -109,7 +109,7 @@ class VStruct(vs_prims.v_base):
 
             delta = len(self) % align
             if delta != 0:
-                print "PADDING %s by %d" % (name,align-delta)
+                print("PADDING %s by %d" % (name,align-delta))
                 pname = "_pad%d" % self._vs_padnum
                 self._vs_padnum += 1
                 self._vs_fields.append(pname)

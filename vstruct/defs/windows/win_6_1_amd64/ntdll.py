@@ -5350,7 +5350,7 @@ class RTL_USER_PROCESS_PARAMETERS(vstruct.VStruct):
         self._pad0020 = v_bytes(size=4)
         self.StandardInput = v_ptr64()
         self.StandardOutput = v_ptr64()
-        self.StandardError = v_ptr64()
+        self.Exception = v_ptr64()
         self.CurrentDirectory = CURDIR()
         self.DllPath = UNICODE_STRING()
         self.ImagePathName = UNICODE_STRING()

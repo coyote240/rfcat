@@ -19,8 +19,8 @@
 # the Free Software Foundation, Inc., 51 Franklin Street,
 # Boston, MA 02110-1301, USA.
 
-from __future__ import print_function
-from __future__ import division
+
+
 
 from future import standard_library
 standard_library.install_aliases()
@@ -35,7 +35,7 @@ import rflib
 from .bits import correctbytes
 # import cPickle in Python 2 instead of pickle in Python 3
 if sys.version_info < (3,):
-    import cPickle as pickle
+    import pickle as pickle
 else:
     import pickle as pickle
 
